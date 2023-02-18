@@ -1,4 +1,4 @@
-The DR-DOS/OpenDOS Enhancement Project
+# The DR-DOS/OpenDOS Enhancement Project
 
 (Please note that the links in this document no longer work)
 
@@ -21,10 +21,10 @@ official web site. Since it has got its own domain, this should not change
 anymore.
 
 To use the supplied patches, you need the following:
-- a copy of the original Caldera OpenDOS 7.01 source code archive (DOSSRC.ZIP)
-- a tool capable of unpacking ZIP archives
-- a utility to apply the patches to the source
-- the development tools MASM 6.0b and Watcom C/C++ 10.0a (other versions may
+* a copy of the original Caldera OpenDOS 7.01 source code archive (DOSSRC.ZIP)
+* a tool capable of unpacking ZIP archives
+* a utility to apply the patches to the source
+* the development tools MASM 6.0b and Watcom C/C++ 10.0a (other versions may
   work as well, but this has not been tested)
 
 Note that the source code patches are not cumulative, meaning that you have to
