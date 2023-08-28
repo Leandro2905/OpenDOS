@@ -1,60 +1,51 @@
-# The DR-DOS/OpenDOS Enhancement Project
+# The DR-DOS/OpenDOS Revival Project
 
-(Please note that the links in this document no longer work)
+OpenDOS had originally been released by Caldera under a commercial license, and it is still bound to this license. If you plan to use OpenDOS for commercial purposes, you need a commercial license on the company that now owns DR-DOS/OpenDOS.
 
-Many PC users in the world use DR-DOS because of its advanced features.
-In mid 2002, however, the development of DR-DOS seemed to have stopped and the
-last version had been released more than three years ago. Since there is no
-other PC operating system that combines so many useful features with full PC
-compatibility, I decided to write my own set of patches for DR-DOS to fix some
-bugs and add support for new standards.
-Since the source code of later versions of DR-DOS was not freely available, I
-decided to use the source code of DR-DOS 7.01, better known as OpenDOS, as
-the base for my work.
-Originally, I had only planned to make minor modifications to DR-DOS 7.01, like
-adding support for large disks, fix some bugs, etc., but with each successive
-version, the scope of the project increased, thereby extending the original
-concept of DOS.
+The original Caldera license agreement is in the file license.txt, and it also applies for any modified versions that you can download here, as far as they are based on OpenDOS, except that you should not contact their tech support on matters specific to the modified versions. You should read license.txt before you start using any of them.
 
-You will find the latest patches at http://www.drdosprojects.de, the project's
-official web site. Since it has got its own domain, this should not change
-anymore.
+Note that the source code patches are not cumulative, meaning that you have to apply the earlier patches to the source code as well, with the exception of Work-In-Progress (WIP) and Release Candidate (RC) versions; these refer to the previous main release version.
 
-To use the supplied patches, you need the following:
-* a copy of the original Caldera OpenDOS 7.01 source code archive (DOSSRC.ZIP)
-* a tool capable of unpacking ZIP archives
-* a utility to apply the patches to the source
-* the development tools MASM 6.0b and Watcom C/C++ 10.0a (other versions may
-  work as well, but this has not been tested)
+For those who do not want to compile the source code themselves or lack the necessary development software, there are also pre-compiled binaries available.
 
-Note that the source code patches are not cumulative, meaning that you have to
-apply the earlier patches to the source code as well, with the exception of
-Work-In-Progress (WIP) and Release Candidate (RC) versions; these refer to the
-previous main release version.
+# Components List
 
-For those who do not want to compile the source code themselves or lack the
-necessary development software, there are also pre-compiled binaries available.
+The Caldera OpenDOS MRS kit contains the following components:
 
-OpenDOS had originally been released by Caldera under a commercial license, and
-it is still bound to this license. If you plan to use OpenDOS for commercial
-purposes, you need a commercial license for it from either Caldera or the
-company that now owns DR-DOS/OpenDOS, DeviceLogics (or like they seem to call
-themselves now, DRDOS, Inc.).
-The original Caldera license agreement is in the file license.txt, and it also
-applies for any modified versions that you can download here, as far as they
-are based on OpenDOS, except that you should not contact their tech support on
-matters specific to the modified versions. You should read license.txt before
-you start using any of them.
+* IBMBIO, IBMDOS and COMMAND
 
-If you use these patches or the precompiled binary versions on my web site, you
-do it at your own risk. I am not responsible for any damage that might occur
-to your hardware or data from using them.
-Due to the experimental nature of these patches and lack of time on my side, I
-cannot provide extensive technical support for them. However, if you find a bug
-that I have not been aware of, or if you want to tell me something that you
-think I should know, you should post a message in
-- the Enhanced DR-DOS forum at http://www.drdosprojects.de/forum/drp_forum/
-which I usually check at least once in a few days. This forum is also an
-excellent place to ask any other DR-DOS related questions or discuss any DR-DOS
-topics with other members of the DR-DOS community.
+These components are accompanied with batch files (MAKE.BAT) that enable them to be built.  These batch files are to be found at the root of each component directory.
 
+## IBMBIO
+
+To build IBMBIO.COM run the MAKE.BAT found in the root of the IBMBIO\ directory.  The MAKE.BAT file sets environment variables that point to the local tools directory and to the Third Party tools required.  The Third party tools directory is set to C:\TOOLS but this can be changed by editing the MAKE.BAT file if required.
+
+When this component has built all built files are placed in the BIN\ directory under the component.
+
+## IBMDOS
+
+To build IBMDOS.COM run the MAKE.BAT found in the root of the IBMDOS\ directory.  The MAKE.BAT file sets environment variables that point to the local tools directory and to the Third party tools required.  The Third party tools directory is set to C:\TOOLS but this can be changed by editing the MAKE.BAT file if required.
+
+When this component has built all built files are placed in the BIN\ directory under the component.
+
+## COMMAND
+
+To build COMMAND.COM run the MAKE.BAT found in the root of the COMMAND\ directory.  The MAKE.BAT file sets environment variables that point to the local tools directory and to the Third party tools required.  The Third party tools directory is set to C:\TOOLS but this can be changed by editing the MAKE.BAT file if required.
+
+When this component has built all built files are placed in the BIN\ directory under the component.
+
+For this component we use the WATCOM optimising compiler, which greatly reduces the size of COMMAND.COM when built.  For this reason it is highly likely that the COMMAND.COM built on your local machine will differ from the shipped version of COMMAND.COM.
+
+To gain better optimisation you will need a large TPA. This is best achieved by installing OpenDOS 7.01 setup to map Video memory into TPA.
+
+In days past this component used to be built with the standard Borland compilers (v2.0) and if required can be modified to do so.
+
+# Building from the Source Code
+
+In order to build these components we have provided some of the "in house" tools that were developed to aid the process. The remainder of the tools have been omitted as you need to obtain the required licences for them.
+
+The following third party tools were used to build the executables. Other versions of these tools may work but have not been tested.
+
+* COMMAND only: Watcom C and Borland C
+* Both IBMBIO and COMMAND: Microsoft MASM and Link
+* IBMBIO only: Microsoft Lib
